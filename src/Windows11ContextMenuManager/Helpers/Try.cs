@@ -37,12 +37,12 @@ public static class Try
         {
             case SecurityException:
             case UnauthorizedAccessException:
-                msg = "Access denied, please try run as administrator.";
+                msg = "没有访问权限，请以管理员身份启动。";
                 break;
             default:
                 msg = e.Message;
                 break;
         }
-        WeakReferenceMessenger.Default.Send(new Notification("Error", msg, NotificationType.Error));
+        WeakReferenceMessenger.Default.Send(new Notification("错误", msg, NotificationType.Error));
     }
 }
