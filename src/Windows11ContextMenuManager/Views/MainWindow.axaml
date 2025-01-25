@@ -9,7 +9,7 @@
         x:Class="Windows11ContextMenuManager.Views.MainWindow"
         x:DataType="vm:MainViewModel"
         Icon="/Assets/icon.ico"
-        Title="Win11 右键菜单管理器"
+        Title="Win11 新版右键菜单管理器"
         Width="1024"
         Height="768"
         WindowStartupLocation="CenterScreen"
