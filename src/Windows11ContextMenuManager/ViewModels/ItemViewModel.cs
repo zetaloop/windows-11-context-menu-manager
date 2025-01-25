@@ -55,8 +55,8 @@ public partial class ItemViewModel : ObservableRecipient
                 Blocks.GetScope(Blocks.WriteScope).Add(Info.Id);
 
             Messenger.Send(new Notification(
-                "Success",
-                $"{Info.Package.DisplayName} context menu {(IsEnabled ? "enabled" : "disabled")}",
+                "成功",
+                $"{(IsEnabled ? "已启用" : "已禁用")} {Info.Package.DisplayName} 右键菜单",
                 NotificationType.Success));
         });
         IsEnabled = GetIsEnabled();
@@ -121,7 +121,7 @@ public partial class ItemViewModel : ObservableRecipient
         {
             await clipboard.SetTextAsync(text);
             Messenger.Send(
-                new Notification("Success", "Copied to clipboard", NotificationType.Success));
+                new Notification("成功", "已复制到剪贴板", NotificationType.Success));
         }
     }
 
