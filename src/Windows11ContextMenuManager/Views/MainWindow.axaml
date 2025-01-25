@@ -9,7 +9,7 @@
         x:Class="Windows11ContextMenuManager.Views.MainWindow"
         x:DataType="vm:MainViewModel"
         Icon="/Assets/icon.ico"
-        Title="Windows 11 Context Menu Manager"
+        Title="Win11 右键菜单管理器"
         Width="1024"
         Height="768"
         WindowStartupLocation="CenterScreen"
@@ -65,7 +65,7 @@
       <Grid ColumnDefinitions="Auto,*,Auto">
         <Button Command="{Binding LoadCommand}"
                 Classes="icon-button"
-                ToolTip.Tip="{Binding LoadElapsed, StringFormat='Refresh ({0}ms)'}">
+                ToolTip.Tip="{Binding LoadElapsed, StringFormat='刷新（加载耗时{0}ms）'}">
           <PathIcon Data="{StaticResource ArrowClockwise}" />
         </Button>
 
@@ -73,7 +73,7 @@
                  Text="{Binding Search}"
                  MaxWidth="500"
                  Margin="16,0"
-                 Watermark="Search"
+                 Watermark="搜索"
                  Classes="clearButton">
           <TextBox.InnerLeftContent>
             <PathIcon Data="{StaticResource Search}"
@@ -86,7 +86,7 @@
           <Label Target="ScopeComboBox"
                  VerticalAlignment="Center"
                  Margin="0,0,4,0">
-            Disable for
+            作用范围
           </Label>
           <ComboBox Name="ScopeComboBox"
                     SelectedValue="{Binding Scope}"
@@ -115,13 +115,13 @@
           <StackPanel Margin="16,0,0,0">
             <Button Command="{Binding CollapseAllCommand}"
                     Classes="icon-button"
-                    ToolTip.Tip="Collapse All">
+                    ToolTip.Tip="全部折叠">
               <PathIcon Data="{StaticResource ButtonSpinnerIncreaseButtonIcon}"
                         Height="5" />
             </Button>
             <Button Command="{Binding ExpandAllCommand}"
                     Classes="icon-button"
-                    ToolTip.Tip="Expand All">
+                    ToolTip.Tip="全部展开">
               <PathIcon Data="{StaticResource ButtonSpinnerDecreaseButtonIcon}"
                         Height="5" />
             </Button>
@@ -145,7 +145,7 @@
               <Setter.Value>
                 <VisualBrush Stretch="None">
                   <VisualBrush.Visual>
-                    <TextBlock Text="No Items Found." />
+                    <TextBlock Text="没搜到。" />
                   </VisualBrush.Visual>
                 </VisualBrush>
               </Setter.Value>
@@ -178,7 +178,7 @@
                               CommandParameter="{Binding $self}"
                               Classes="icon-button"
                               Padding="4"
-                              ToolTip.Tip="Copy">
+                              ToolTip.Tip="复制">
                         <PathIcon Data="{StaticResource Copy}"
                                   Width="10"
                                   Height="10"
@@ -191,7 +191,7 @@
                               CommandParameter="{Binding $self}"
                               Classes="icon-button"
                               Padding="4"
-                              ToolTip.Tip="Copy">
+                              ToolTip.Tip="复制">
                         <PathIcon Data="{StaticResource Copy}"
                                   Width="10"
                                   Height="10"
@@ -227,15 +227,15 @@
                            Height="1"
                            Margin="-16,16" />
                 <DockPanel>
-                  <Button Content="Open file location"
+                  <Button Content="打开路径"
                           Command="{Binding OpenFileLocationCommand}" />
-                  <Button Content="App settings"
+                  <Button Content="应用设置"
                           Command="{Binding AppSettingsCommand}"
                           Margin="8,0,0,0" />
-                  <Button Content="Microsoft Store"
+                  <Button Content="微软商店"
                           Command="{Binding MicrosoftStoreCommand}"
                           Margin="8,0,0,0" />
-                  <Button Content="Uninstall"
+                  <Button Content="卸载"
                           Command="{Binding UninstallCommand}"
                           Margin="8,0,0,0" />
                 </DockPanel>
