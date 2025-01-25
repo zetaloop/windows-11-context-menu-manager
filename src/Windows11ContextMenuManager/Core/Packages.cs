@@ -99,7 +99,7 @@ public static class Packages
                         let item = new ContextMenu(
                             verb.Attribute("Clsid")?.Value,
                             verb.Attribute("Id")?.Value,
-                            type.Contains("Directory") ? type : $"File: {type}")
+                            type.Contains("Directory") ? type : $"文件类型: {type}")
                         group item by item.Clsid;
                     contextMenus = query.ToDictionary(x => x.Key, x => x.ToList());
                     break;
