@@ -43,7 +43,7 @@ public class PackagesTests
                     new ExtensionExpected(
                         "CA6CC9F1-867A-481E-951E-A28C5E4F01EA",
                         @"NotepadExplorerCommand\NotepadExplorerCommand.dll",
-                        ["文件类型: *", "Directory"])
+                        ["文件: *", "目录"])
                 ]
             }
         };

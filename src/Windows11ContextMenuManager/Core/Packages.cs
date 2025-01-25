@@ -59,6 +59,28 @@ public static class Packages
         return subKey?.GetSubKeyNames() ?? [];
     }
 
+    private static string TranslateItemType(string type)
+    {
+        if (type == "*" || (type.Length > 0 && type[0] == '.'))
+        {
+            return $"文件: {type}";
+        }
+
+        return type switch
+        {
+            "Directory" => "目录",
+            "Directory\\Background" => "目录背景",
+            "DesktopBackground" => "桌面背景",
+            "Drive" => "驱动器",
+            "Folder" => "文件夹",
+            "Unknown" => "未知",
+            "Printers" => "打印机",
+            "SearchFolder" => "搜索文件夹",
+            "LibraryFolder" => "库文件夹",
+            _ => type
+        };
+    }
+
     internal static async Task<IEnumerable<Extension>> AnalyzeManifest(Pkg pkg, bool isBundle)
     {
         var manifestPath = Path.Join(
@@ -99,7 +121,7 @@ public static class Packages
                         let item = new ContextMenu(
                             verb.Attribute("Clsid")?.Value,
                             verb.Attribute("Id")?.Value,
-                            type.Contains("Directory") ? type : $"文件类型: {type}")
+                            TranslateItemType(type))
                         group item by item.Clsid;
                     contextMenus = query.ToDictionary(x => x.Key, x => x.ToList());
                     break;
