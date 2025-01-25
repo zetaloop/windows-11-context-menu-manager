@@ -210,7 +210,9 @@
                   </StackPanel>
                   <ToggleSwitch Grid.Column="2"
                                 IsChecked="{Binding IsEnabled}"
-                                Command="{Binding UpdateIsEnabledCommand}" />
+                                Command="{Binding UpdateIsEnabledCommand}"
+                                OnContent="开"
+                                OffContent="关"/>
                 </Grid>
               </Expander.Header>
               <StackPanel>
