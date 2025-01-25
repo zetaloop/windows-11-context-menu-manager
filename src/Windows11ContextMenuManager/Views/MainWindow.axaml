@@ -75,6 +75,13 @@
                  Margin="16,0"
                  Watermark="搜索"
                  Classes="clearButton">
+          <TextBox.ContextMenu>
+            <ContextMenu>
+              <MenuItem Header="剪切" Command="{Binding $parent[TextBox].Cut}" InputGesture="{x:Static TextBox.CutGesture}" />
+              <MenuItem Header="复制" Command="{Binding $parent[TextBox].Copy}" InputGesture="{x:Static TextBox.CopyGesture}" />
+              <MenuItem Header="粘贴" Command="{Binding $parent[TextBox].Paste}" InputGesture="{x:Static TextBox.PasteGesture}" />
+            </ContextMenu>
+          </TextBox.ContextMenu>
           <TextBox.InnerLeftContent>
             <PathIcon Data="{StaticResource Search}"
                       Width="16"
