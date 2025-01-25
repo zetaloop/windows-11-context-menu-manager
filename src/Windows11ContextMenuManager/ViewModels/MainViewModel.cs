@@ -26,7 +26,13 @@ public partial class MainViewModel : ObservableRecipient, IRecipient<ReloadMessa
     private long _loadElapsed;
 
     public BlockScopeItem[] Scopes { get; } = Blocks.GetScopes()
-        .Select(x => new BlockScopeItem(x.Scope, x.Scope.ToString(), !x.IsReadOnly))
+        .Select(x => new BlockScopeItem(
+            x.Scope,
+            x.Scope switch {
+                BlockScope.User =>"当前用户",
+                BlockScope.Machine => "所有用户",
+                _ => x.Scope.ToString()},
+            !x.IsReadOnly))
         .ToArray();
 
     public IEnumerable<ItemViewModel> DisplayItems
