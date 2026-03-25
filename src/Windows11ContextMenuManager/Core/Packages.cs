@@ -101,7 +101,8 @@ public static class Packages
                             verb.Attribute("Id")?.Value,
                             type.Contains("Directory") ? type : $"File: {type}")
                         group item by item.Clsid;
-                    contextMenus = query.ToDictionary(x => x.Key, x => x.ToList());
+                    foreach (var x in query)
+                        contextMenus.Add(x.Key, x.ToList());
                     break;
                 }
                 case "ComServer":
@@ -119,7 +120,8 @@ public static class Packages
                                 cls.Attribute("Path")?.Value ?? server.Attribute("Executable")?.Value),
                             server.Attribute("DisplayName")?.Value)
                         group item by item.Id;
-                    comServers = query.ToDictionary(x => x.Key, x => x.First());
+                    foreach (var x in query)
+                        comServers.Add(x.Key, x.First());
                     break;
                 }
             }
